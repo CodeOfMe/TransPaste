@@ -111,6 +111,11 @@ TransPaste allows the selection of the local LLM to be utilized for translation.
 
 ![Model Selection](images/3-模型选择.png)
 
+
+### 5. Demo
+
+![Demo](https://raw.githubusercontent.com/CodeOfMe/TransPaste/main/images/Demo.gif)
+
 ## Authorization Agreement
 
 TransPaste is free and open-source software licensed under the **GNU General Public License v3.0 (GPLv3)**.

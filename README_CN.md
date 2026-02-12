@@ -1,6 +1,6 @@
-# TransPaste
-
-TransPaste 是一款基于本地大语言模型（LLM）的轻量级剪贴板翻译工具，通过 Ollama 驱动。其旨在无缝融入日常工作流程，自动检测复制到剪贴板的文本，并将其替换为高质量的目标语言翻译。
+# TransPaste-跨文化传播场景下基于本地大语言模型的轻量级剪贴板翻译软件
+##### 版本号 1.0
+TransPaste 通过 Ollama 驱动，旨在无缝融入日常工作流程，自动检测复制到剪贴板的文本，并将其替换为高质量的目标语言翻译。
 
 ## 项目背景
 
@@ -110,6 +110,11 @@ TransPaste 使用 Python 和 PySide6 框架（Qt for Python）构建，使其具
 TransPaste 允许选择用于翻译的本地 LLM。此菜单根据在 Ollama 中可用的模型动态填充。可以根据需要即时在像 `gemma3:1b` 或 `qwen3:0.6b` 这样的模型之间切换。
 
 ![模型选择](images/3-模型选择.png)
+
+
+### 5. 实际效果
+
+![实际效果](https://raw.githubusercontent.com/CodeOfMe/TransPaste/main/images/Demo.gif)
 
 ## 授权协议
 
