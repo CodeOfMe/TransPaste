@@ -70,34 +70,43 @@ Follow these steps to set up TransPaste on a local machine.
         *   Linux: `source venv/bin/activate`
 
 4.  **Install Dependencies**:
-    *   Execute the following command to install the required Python packages:
+    *   Since TransPaste is a Python package, installation is simple via pip:
         ```bash
-        pip install -r requirements.txt
+        pip install .
         ```
-    *   If `requirements.txt` is unavailable, manual installation is possible:
+    *   Or, if installing from PyPI (once published):
         ```bash
-        pip install PySide6 requests
+        pip install transpaste
         ```
 
 5.  **Run the Application**:
-    *   Execute the script: `python clipboard_translator.py`
-    *   A clipboard icon should appear in the system tray, indicating that TransPaste is active and monitoring the clipboard.
+    *   Execute the command: `transpaste`
+    *   A clipboard icon should appear in the system tray, indicating that TransPaste is active.
+    *   Command line options are also available:
+        ```bash
+        transpaste --model qwen3:0.6b --target French
+        ```
 
 ## Running Screenshots
 
 Below are screenshots demonstrating the usage and configuration of TransPaste.
 
-### 1. Source Language Selection
+### 1. Enable/Disable Toggle
+This feature provides a quick way to pause translation without exiting the application. When disabled, the clipboard contents remain untouched, allowing for standard copy-paste operations.
+
+![Enable/Disable Toggle](images/2-启用开关.png)
+
+### 2. Source Language Selection
 Right-click the system tray icon to access the menu. Under "Source Language," the language of the text being copied can be selected. "Auto Detect" is recommended for general use, allowing the model to infer the source language automatically.
 
 ![Source Language Selection](images/0-原始语言选择.png)
 
-### 2. Target Language Selection
+### 3. Target Language Selection
 This menu permits the definition of the target language for translation. By default, it is set to English, but switching to Chinese, Japanese, French, and many others is easily accomplished depending on immediate requirements.
 
 ![Target Language Selection](images/1-目标语言选择.png)
 
-### 3. Model Selection
+### 4. Model Selection
 TransPaste allows the selection of the local LLM to be utilized for translation. This menu dynamically populates based on the models available in Ollama. Switching between models like `gemma3:1b` or `qwen3:0.6b` can be performed instantly.
 
 ![Model Selection](images/3-模型选择.png)

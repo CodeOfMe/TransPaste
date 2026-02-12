@@ -70,34 +70,43 @@ TransPaste 使用 Python 和 PySide6 框架（Qt for Python）构建，使其具
         *   Linux: `source venv/bin/activate`
 
 4.  **安装依赖项**：
-    *   运行以下命令以安装所需的 Python 包：
+    *   TransPaste 是一个标准的 Python 包，可以通过 pip 安装：
         ```bash
-        pip install -r requirements.txt
+        pip install .
         ```
-    *   如果 `requirements.txt` 不可用，可以手动安装它们：
+    *   或者，如果从 PyPI 安装（发布后）：
         ```bash
-        pip install PySide6 requests
+        pip install transpaste
         ```
 
 5.  **运行应用程序**：
-    *   执行脚本：`python clipboard_translator.py`
-    *   应该会看到系统托盘中出现一个剪贴板图标，表示 TransPaste 处于活动状态并正在监控剪贴板。
+    *   在终端执行命令：`transpaste`
+    *   系统托盘中会出现一个剪贴板图标，表示程序已启动。
+    *   也支持命令行参数：
+        ```bash
+        transpaste --model qwen3:0.6b --target French
+        ```
 
 ## 运行截图
 
 以下截图演示了 TransPaste 的使用和配置。
 
-### 1. 源语言选择
+### 1. 启用/禁用开关
+此功能提供了一种在不退出应用程序的情况下暂停翻译的快速方法。禁用时，剪贴板内容保持不变，允许进行标准的复制粘贴操作。
+
+![启用/禁用开关](images/2-启用开关.png)
+
+### 2. 源语言选择
 右键单击系统托盘图标以访问菜单。在“源语言”下，可以选择正在复制的文本的语言。推荐一般使用“自动检测”，允许模型自动推断源语言。
 
 ![源语言选择](images/0-原始语言选择.png)
 
-### 2. 目标语言选择
+### 3. 目标语言选择
 此菜单允许定义希望将文本翻译成哪种语言。默认设置为英语，但可以根据即时需求轻松切换到中文、日语、法语和许多其他语言。
 
 ![目标语言选择](images/1-目标语言选择.png)
 
-### 3. 模型选择
+### 4. 模型选择
 TransPaste 允许选择用于翻译的本地 LLM。此菜单根据在 Ollama 中可用的模型动态填充。可以根据需要即时在像 `gemma3:1b` 或 `qwen3:0.6b` 这样的模型之间切换。
 
 ![模型选择](images/3-模型选择.png)
