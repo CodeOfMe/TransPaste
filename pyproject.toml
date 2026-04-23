@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "transpaste"
-version = "0.2.0"
+version = "0.3.0"
 description = "A local LLM-based clipboard translator"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -16,9 +16,45 @@ dependencies = [
   "PySide6",
   "requests",
 ]
+keywords = ["clipboard", "translation", "ollama", "llm", "local-ai", "system-tray"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities",
+    "Topic :: Text Processing :: Linguistic",
+]
 
 [project.scripts]
 transpaste = "transpaste.main:main"
 
 [project.urls]
 "Homepage" = "https://github.com/CodeOfMe/TransPaste"
+"Bug Tracker" = "https://github.com/CodeOfMe/TransPaste/issues"
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "black",
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

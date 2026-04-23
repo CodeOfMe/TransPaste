@@ -74,7 +74,7 @@ Follow these steps to set up TransPaste on a local machine.
         ```bash
         pip install .
         ```
-    *   Or, if installing from PyPI (once published):
+    *   Or, if installing from PyPI:
         ```bash
         pip install transpaste
         ```
@@ -84,8 +84,50 @@ Follow these steps to set up TransPaste on a local machine.
     *   A clipboard icon should appear in the system tray, indicating that TransPaste is active.
     *   Command line options are also available:
         ```bash
-        transpaste --model qwen3:0.6b --target French
+        transpaste --model qwen3:0.6b --target French --base-url http://192.168.1.100:11434 --proxy http://127.0.0.1:7890
         ```
+
+## Features
+
+### Translation Styles
+- **Default**: Standard translation
+- **Formal**: Professional and polite
+- **Casual**: Relaxed and friendly
+- **Academic**: Scholarly and precise
+- **Literary**: Artistic and expressive
+- **Technical**: Technical documentation
+- **Simple**: Easy to understand
+
+### Length Control
+- **Unlimited**: No length limit
+- **Brief**: ~50 words max
+- **Short**: ~100 words max
+- **Medium**: ~200 words max
+- **Detailed**: Comprehensive translation
+
+### Keyboard Shortcuts
+- **Ctrl+Shift+T**: Toggle translation on/off
+
+### Translation History
+- Up to 50 recent translations are saved and accessible from the tray menu
+- History persists across sessions
+
+### Custom Prompts
+- Define your own translation prompt template via Settings > Custom Prompt
+- Use `{source_lang}`, `{target_lang}`, and `{text}` as placeholders
+
+### CLI Options
+| Flag | Description | Default |
+|------|-------------|---------|
+| `--model` | Ollama model to use | gemma3:1b |
+| `--source` | Source language | Auto Detect |
+| `--target` | Target language | English |
+| `--style` | Translation style | Default |
+| `--length` | Length control | Unlimited |
+| `--temperature` | Model temperature | 0.3 |
+| `--base-url` | Ollama API base URL | http://localhost:11434 |
+| `--proxy` | HTTP proxy URL | None |
+| `--debug` | Enable debug logging | Off |
 
 ## Running Screenshots
 
@@ -115,6 +157,39 @@ TransPaste allows the selection of the local LLM to be utilized for translation.
 ### 5. Demo
 
 ![Demo](https://raw.githubusercontent.com/CodeOfMe/TransPaste/main/images/Demo.gif)
+
+## FAQ
+
+**Q: Why is translation slow?**
+A: Translation speed depends on your model size and hardware. Smaller models like `gemma3:1b` or `qwen3:0.6b` are faster but less accurate. Larger models produce better translations but require more GPU memory.
+
+**Q: Can I use a remote Ollama server?**
+A: Yes! Use the `--base-url` flag to point to a remote Ollama instance: `transpaste --base-url http://192.168.1.100:11434`
+
+**Q: How do I clear translation history?**
+A: Right-click the tray icon > Translation History > Clear History.
+
+**Q: The tray icon doesn't appear on Linux.**
+A: Ensure you have a system tray compositor running (e.g., `polybar`, `xfce4-panel`, or `plasma-workspace`). Install the required XCB libraries as listed above.
+
+**Q: Can I customize the translation prompt?**
+A: Yes! Go to Settings > Custom Prompt in the tray menu. Use `{source_lang}`, `{target_lang}`, and `{text}` as placeholders.
+
+## Development
+
+```bash
+# Install in development mode with dev dependencies
+pip install -e ".[dev]"
+
+# Format code
+black src/transpaste/
+
+# Lint code
+ruff check src/transpaste/
+
+# Run tests
+python tests/test_transpaste.py
+```
 
 ## Authorization Agreement
 

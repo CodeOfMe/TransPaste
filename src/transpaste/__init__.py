@@ -1,5 +1,31 @@
-from .main import main, LANGUAGE_MAP, TRANSLATION_STYLES, LENGTH_OPTIONS
+"""TransPaste - Local LLM Clipboard Translator."""
 
-__version__ = "0.2.1"
+from .main import (
+    LANGUAGE_MAP,
+    LENGTH_OPTIONS,
+    TRANSLATION_STYLES,
+    AboutDialog,
+    ClipboardTranslator,
+    IconGenerator,
+    TranslationEntry,
+    TranslatorWorker,
+    build_prompt,
+    main,
+    setup_logging,
+)
 
-__all__ = ["main", "LANGUAGE_MAP", "TRANSLATION_STYLES", "LENGTH_OPTIONS"]
+__version__ = "0.3.1"
+
+__all__ = [
+    "main",
+    "build_prompt",
+    "IconGenerator",
+    "TranslatorWorker",
+    "ClipboardTranslator",
+    "AboutDialog",
+    "TranslationEntry",
+    "LANGUAGE_MAP",
+    "TRANSLATION_STYLES",
+    "LENGTH_OPTIONS",
+    "setup_logging",
+]
