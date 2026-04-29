@@ -215,3 +215,4 @@ __marimo__/
 *.db
 docs/wechat-article.md
 scripts/generate_screenshots.py
+wechat.md
