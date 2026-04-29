@@ -5,9 +5,6 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "transpaste"
 dynamic = ["version"]
-
-[tool.setuptools.dynamic]
-version = {attr = "transpaste.__version__"}
 description = "A local LLM-based clipboard translator"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -32,6 +29,9 @@ classifiers = [
     "Topic :: Utilities",
     "Topic :: Text Processing :: Linguistic",
 ]
+
+[tool.setuptools.dynamic]
+version = {attr = "transpaste.__version__"}
 
 [project.scripts]
 transpaste = "transpaste.main:main"

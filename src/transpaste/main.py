@@ -752,22 +752,21 @@ class ClipboardTranslator(QObject):
             self.tray_icon.setToolTip(f"TransPaste [{status}] - {self.current_model}")
 
     def _setup_clipboard_monitor(self) -> None:
-        """Connect clipboard change signal and set up macOS polling fallback."""
+        """Connect clipboard change signal and set up cross-platform polling fallback."""
         log("Connecting clipboard.dataChanged signal...")
         result = self.clipboard.dataChanged.connect(self._on_clipboard_changed)
         log(f"Signal connected: {result}")
 
-        if sys.platform == "darwin":
-            log("macOS detected, starting polling timer as backup...")
-            self.poll_timer = QTimer(self)
-            self.poll_timer.timeout.connect(self._poll_clipboard)
-            self.poll_timer.start(500)
+        log(f"Starting polling timer for {sys.platform}...")
+        self.poll_timer = QTimer(self)
+        self.poll_timer.timeout.connect(self._poll_clipboard)
+        self.poll_timer.start(500)
 
-            current_text = self.clipboard.text()
-            log(f"Current clipboard text on startup: '{current_text[:50]}...' (len={len(current_text)})")
+        current_text = self.clipboard.text()
+        log(f"Current clipboard text on startup: '{current_text[:50]}...' (len={len(current_text)})")
 
     def _poll_clipboard(self) -> None:
-        """Fallback polling for macOS clipboard detection."""
+        """Polling-based clipboard change detection (cross-platform fallback)."""
         if not self.is_enabled:
             return
 
