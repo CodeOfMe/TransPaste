@@ -4,7 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "transpaste"
-version = "0.3.0"
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "transpaste.__version__"}
 description = "A local LLM-based clipboard translator"
 readme = "README.md"
 requires-python = ">=3.10"
