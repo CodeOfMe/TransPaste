@@ -80,7 +80,7 @@ def log(message: str, level: str = "INFO") -> None:
 # -----------------------------------------------------------------------------
 # Configuration
 # -----------------------------------------------------------------------------
-OLLAMA_API_URL = "http://localhost:11434/api/generate"
+OLLAMA_API_URL = "http://localhost:11434"
 OLLAMA_TAGS_URL = "http://localhost:11434/api/tags"
 DEFAULT_MODEL = "gemma3:1b"
 TIMEOUT_SECONDS = 120
